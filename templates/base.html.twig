@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+           <link rel="stylesheet" href="static/css/style.css">
+        <script src="static/js/bootstrap.js"></script>
+
+    </head>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container-fluid">
+   
+
+<div class="col-1">
+ <a class="navbar-brand" href="#"><b>MVC</b></a>
+ </div>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav text-center mx-auto">
+  <li  {% if  app.request.attributes.get('_route') == 'home' %} class="active"{% endif %}>
+    <a class="nav-link" href="{{ path('home') }}"><img src="/static/icons/home.svg" width="24" height="24" class="navIcon mx-auto" > Home</a>
+  </li>
+  <li  {% if app.request.get('_route') == 'about' %} class="active"{% endif %}>
+    <a  class="nav-link" href="{{ path('about') }}"><img src="/static/icons/about.svg" width="24" height="24" class="navIcon mx-auto"> About</a>
+  </li>
+  <li  {% if app.request.get('_route') == 'report' %} class="active"{% endif %}>
+    <a  class="nav-link" href="{{ path('report') }}"> <img src="/static/icons/report.svg" width="24" height="24" class="navIcon mx-auto"> Report </a>
+  </li>
+  </ul>
+ 
+</div>
+<div class="col-1"></div>
+</div>
+</nav>
+
+    <body class="d-flex flex-column min-vh-100 ">
+    
+        {% block content %}
+     
+        {% endblock %}
+    </body>
+     <footer class="text-center text-lg-start bg-light mt-auto">
+
+  <div class="text-center p-3">
+    © 2022 Copyright:
+    <a class="text-dark" href="#">Afshin</a>
+  </div>
+ 
+</footer>
+    
+</html>
